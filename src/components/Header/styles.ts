@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { shade } from 'polished';
+import { Container as Button } from '../Button/styles';
 
 export const Container = styled.header`
   ${({ theme }) => css`
@@ -24,24 +24,9 @@ export const Container = styled.header`
         align-items: center;
       }
 
-      button {
+      ${Button} {
         height: 5rem;
         padding: 0 ${theme.spacings.medium};
-        background: ${theme.colors.blue};
-        border-radius: ${theme.radius.default};
-        color: ${theme.colors.white};
-        font-size: ${theme.font.sizes.bodySmall};
-        font-weight: ${theme.font.semibold};
-        text-transform: uppercase;
-        transition: ${theme.transitions.default};
-
-        svg {
-          margin-right: ${theme.spacings.xxsmall};
-        }
-
-        &:hover {
-          background: ${shade(0.2, theme.colors.blue)};
-        }
       }
     }
   `}

@@ -1,4 +1,7 @@
 import { FiEdit, FiTrash } from 'react-icons/fi';
+
+import Button from '../Button';
+
 import * as S from './styles';
 
 export default function Tools() {
@@ -18,12 +21,12 @@ export default function Tools() {
           <li>calendar</li>
         </ul>
         <div>
-          <button type="button" className="edit">
+          <Button type="button">
             <FiEdit size={16} />
-          </button>
-          <button type="button" className="remove">
+          </Button>
+          <Button type="button" className="remove">
             <FiTrash size={16} />
-          </button>
+          </Button>
         </div>
       </article>
       <article>
@@ -40,12 +43,12 @@ export default function Tools() {
           <li>calendar</li>
         </ul>
         <div>
-          <button type="button" className="edit">
+          <Button type="button" className="edit">
             <FiEdit size={16} />
-          </button>
-          <button type="button" className="remove">
+          </Button>
+          <Button type="button" className="remove">
             <FiTrash size={16} />
-          </button>
+          </Button>
         </div>
       </article>
       <article>
@@ -62,12 +65,12 @@ export default function Tools() {
           <li>calendar</li>
         </ul>
         <div>
-          <button type="button" className="edit">
+          <Button type="button" className="edit">
             <FiEdit size={16} />
-          </button>
-          <button type="button" className="remove">
+          </Button>
+          <Button type="button" className="remove">
             <FiTrash size={16} />
-          </button>
+          </Button>
         </div>
       </article>
     </S.Container>

@@ -1,5 +1,7 @@
 import { FiPlus, FiSearch } from 'react-icons/fi';
 
+import Button from '../Button';
+
 import * as S from './styles';
 
 export default function Header() {
@@ -18,10 +20,7 @@ export default function Header() {
             <span>Search in tags only</span>
           </S.Checkbox>
         </div>
-        <button type="button">
-          <FiPlus size={20} />
-          Add
-        </button>
+        <Button icon={FiPlus}>Add</Button>
       </div>
     </S.Container>
   );

@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 import { shade } from 'polished';
 
+import { Container as Button } from '../Button/styles';
+
 export const Container = styled.div`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.small};
@@ -55,24 +57,9 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
 
-        button {
-          padding: ${theme.spacings.xsmall};
-          border-radius: ${theme.radius.default};
-          color: ${theme.colors.white};
-          transition: ${theme.transitions.default};
-        }
-
-        .edit {
-          background: ${theme.colors.blue};
-          margin-right: ${theme.spacings.xsmall};
-
-          &:hover {
-            background: ${shade(0.2, theme.colors.blue)};
-          }
-        }
-
         .remove {
           background: ${theme.colors.red};
+          margin-left: ${theme.spacings.xsmall};
 
           &:hover {
             background: ${shade(0.2, theme.colors.red)};
