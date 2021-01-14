@@ -57,6 +57,12 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
 
+        ${Button} {
+          svg {
+            margin: 0;
+          }
+        }
+
         .remove {
           background: ${theme.colors.red};
           margin-left: ${theme.spacings.xsmall};
