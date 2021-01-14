@@ -14,6 +14,7 @@ export default createGlobalStyle`
   }
 
   body {
+    color: ${({ theme }) => theme.colors.ink};
     text-rendering: optimizeLegibility !important;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased !important;
