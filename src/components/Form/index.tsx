@@ -40,14 +40,6 @@ export default function Form() {
         label="Tool Tags"
         placeholder="Optional..."
       />
-      {/* <div>
-        <label htmlFor="description">Tool Description</label>
-        <textarea
-          name="description"
-          id="description"
-          placeholder="Optional..."
-        />
-      </div> */}
       <Button type="submit">Add tool</Button>
     </S.Container>
   );
