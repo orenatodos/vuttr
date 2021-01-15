@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components';
 
-import { shade } from 'polished';
+import { Form } from '@unform/web';
 
-export const Container = styled.form`
+import { shade } from 'polished';
+import { Container as Field } from './Field/styles';
+
+export const Container = styled(Form)`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
@@ -15,6 +18,21 @@ export const Container = styled.form`
 
       svg {
         margin-right: ${theme.spacings.xsmall};
+      }
+    }
+
+    ${Field} {
+      span {
+        display: flex;
+        align-items: center;
+        padding: ${theme.spacings.xsmall};
+        background: ${theme.colors.white};
+        border-radius: ${theme.radius.default};
+        cursor: pointer;
+
+        > svg {
+          margin-left: ${theme.spacings.xxsmall};
+        }
       }
     }
 
