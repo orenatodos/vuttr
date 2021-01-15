@@ -1,12 +1,15 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+interface FieldProps {
+  isErrored: boolean;
+}
+
+export const Container = styled.div<FieldProps>`
   ${({ theme }) => css`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-weight: ${theme.font.semibold};
     margin-top: ${theme.spacings.small};
 
     label {
@@ -47,5 +50,26 @@ export const Container = styled.div`
       height: 18rem;
       resize: none;
     }
+
+    p {
+      font-size: ${theme.font.sizes.bodySmall};
+      color: ${theme.colors.red};
+      align-self: flex-end;
+    }
   `}
+
+  ${({ theme, isErrored }) =>
+    isErrored &&
+    css`
+      div {
+        background: ${theme.colors.mostLightestRed};
+        border-color: ${theme.colors.red};
+
+        input {
+          &::placeholder {
+            color: ${theme.colors.red};
+          }
+        }
+      }
+    `}
 `;

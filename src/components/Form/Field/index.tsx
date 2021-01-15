@@ -43,7 +43,7 @@ export default function Field(props: PropsWithChildren<FieldProps>) {
   );
 
   return (
-    <S.Container>
+    <S.Container isErrored={!!error}>
       <label htmlFor={id}>{label}</label>
       <div>
         {children}
