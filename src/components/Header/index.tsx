@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import { FiPlus, FiSearch } from 'react-icons/fi';
 
 import Button from '../Button';
+import Modal from '../Modal';
+import Form from '../Form';
 
 import * as S from './styles';
 
 export default function Header() {
+  const [modalIsShown, setModalIsShown] = useState(false);
+
   return (
     <S.Container>
       <h1>VUTTR</h1>
@@ -20,8 +25,13 @@ export default function Header() {
             <span>Search in tags only</span>
           </S.Checkbox>
         </div>
-        <Button icon={FiPlus}>Add</Button>
+        <Button icon={FiPlus} onClick={() => setModalIsShown(!modalIsShown)}>
+          Add
+        </Button>
       </div>
+      <Modal isShown={modalIsShown} hide={() => setModalIsShown(!modalIsShown)}>
+        <Form />
+      </Modal>
     </S.Container>
   );
 }

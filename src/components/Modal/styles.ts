@@ -14,9 +14,13 @@ export const Container = styled.div`
     background: rgba(0, 0, 0, 0.5);
 
     > div {
+      width: 100%;
+      max-width: 60rem;
       padding: ${theme.spacings.medium};
       background: ${theme.colors.white};
       border-radius: ${theme.radius.default};
+      max-height: 52rem;
+      overflow: auto;
     }
   `}
 `;
