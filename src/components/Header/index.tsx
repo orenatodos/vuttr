@@ -1,18 +1,10 @@
-import { useCallback, useState } from 'react';
 import { FiPlus, FiSearch } from 'react-icons/fi';
 
 import Button from '../Button';
-import Modal from '../Modal';
 
 import * as S from './styles';
 
 export default function Header() {
-  const [isShown, setIsShown] = useState(false);
-
-  const handleModal = useCallback(() => {
-    setIsShown(!isShown);
-  }, [isShown]);
-
   return (
     <S.Container>
       <h1>VUTTR</h1>
@@ -28,11 +20,8 @@ export default function Header() {
             <span>Search in tags only</span>
           </S.Checkbox>
         </div>
-        <Button icon={FiPlus} onClick={handleModal}>
-          Add
-        </Button>
+        <Button icon={FiPlus}>Add</Button>
       </div>
-      <Modal isShown={isShown} />
     </S.Container>
   );
 }
