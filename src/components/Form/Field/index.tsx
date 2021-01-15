@@ -1,13 +1,19 @@
-import { PropsWithChildren } from 'react';
+import {
+  InputHTMLAttributes,
+  PropsWithChildren,
+  TextareaHTMLAttributes,
+} from 'react';
+
 import * as S from './styles';
 
-interface FieldProps {
-  type: string;
-  name: string;
-  id: string;
+type InputProps = InputHTMLAttributes<HTMLInputElement>;
+
+type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+type FieldProps = (InputProps & TextareaProps) & {
   label: string;
-  placeholder: string;
-}
+  type: string;
+};
 
 export default function Field(props: PropsWithChildren<FieldProps>) {
   const { type, name, id, label, children, ...rest } = props;
