@@ -2,77 +2,39 @@ import { FiEdit, FiTrash } from 'react-icons/fi';
 
 import Button from '../Button';
 
+import { Tool } from '../../App';
+
 import * as S from './styles';
 
-export default function Tools() {
+interface ToolsProps {
+  tools: Tool[];
+}
+
+export default function Tools(props: ToolsProps) {
+  const { tools } = props;
+
   return (
     <S.Container>
-      <article>
-        <a href="/">Notion</a>
-        <p>
-          All in one tool to organize teams and ideas. Write, plan, collaborate,
-          and get organized.
-        </p>
-        <ul>
-          <li>organization</li>
-          <li>planning</li>
-          <li>collaboration</li>
-          <li>writing</li>
-          <li>calendar</li>
-        </ul>
-        <div>
-          <Button type="button">
-            <FiEdit size={16} />
-          </Button>
-          <Button type="button" className="remove">
-            <FiTrash size={16} />
-          </Button>
-        </div>
-      </article>
-      <article>
-        <a href="/">Notion</a>
-        <p>
-          All in one tool to organize teams and ideas. Write, plan, collaborate,
-          and get organized.
-        </p>
-        <ul>
-          <li>organization</li>
-          <li>planning</li>
-          <li>collaboration</li>
-          <li>writing</li>
-          <li>calendar</li>
-        </ul>
-        <div>
-          <Button type="button" className="edit">
-            <FiEdit size={16} />
-          </Button>
-          <Button type="button" className="remove">
-            <FiTrash size={16} />
-          </Button>
-        </div>
-      </article>
-      <article>
-        <a href="/">Notion</a>
-        <p>
-          All in one tool to organize teams and ideas. Write, plan, collaborate,
-          and get organized.
-        </p>
-        <ul>
-          <li>organization</li>
-          <li>planning</li>
-          <li>collaboration</li>
-          <li>writing</li>
-          <li>calendar</li>
-        </ul>
-        <div>
-          <Button type="button" className="edit">
-            <FiEdit size={16} />
-          </Button>
-          <Button type="button" className="remove">
-            <FiTrash size={16} />
-          </Button>
-        </div>
-      </article>
+      {tools.map(tool => (
+        <article key={tool.id}>
+          <a href={tool.link}>{tool.title}</a>
+          <p>{tool.description}</p>
+          <ul>
+            {tool.tags.map((tag, index) => (
+              // eslint-disable-next-line
+              <li key={index}>#{tag}</li>
+            ))}
+          </ul>
+          <div>
+            <Button type="button">
+              <FiEdit size={16} />
+            </Button>
+            <Button type="button" className="remove">
+              <FiTrash size={16} />
+            </Button>
+          </div>
+        </article>
+      ))}
     </S.Container>
   );
 }
