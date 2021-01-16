@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import api from './services/api';
 
 import Header from './components/Header';
-import Tools from './components/Tools';
+import Tool from './components/Tool';
 
 export interface Tool {
   id: number;
@@ -29,7 +29,11 @@ export default function App() {
   return (
     <>
       <Header />
-      <Tools tools={tools} />
+      <main>
+        {tools.map(tool => (
+          <Tool key={tool.id} tool={tool} tools={tools} setTools={setTools} />
+        ))}
+      </main>
     </>
   );
 }
