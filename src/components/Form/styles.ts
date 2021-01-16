@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
 import { Form } from '@unform/web';
-
 import { shade } from 'polished';
+
 import { Container as Field } from './Field/styles';
+import { Container as Button } from '../Button/styles';
 
 export const Container = styled(Form)`
   ${({ theme }) => css`
@@ -11,17 +12,9 @@ export const Container = styled(Form)`
     flex-direction: column;
     align-items: flex-start;
 
-    strong {
-      display: flex;
-      align-items: center;
-      font-size: ${theme.font.sizes.header1};
-
-      svg {
-        margin-right: ${theme.spacings.xsmall};
-      }
-    }
-
     ${Field} {
+      margin-bottom: ${theme.spacings.small};
+
       span {
         display: flex;
         align-items: center;
@@ -36,12 +29,12 @@ export const Container = styled(Form)`
       }
     }
 
-    button {
+    ${Button} {
       height: 5rem;
       padding: 0 ${theme.spacings.medium};
       align-self: flex-end;
       background: ${theme.colors.green};
-      margin-top: ${theme.spacings.medium};
+      margin-top: ${theme.spacings.small};
 
       &:hover {
         background: ${shade(0.2, theme.colors.green)};

@@ -1,6 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { FiPlus, FiX } from 'react-icons/fi';
-
+import { FiX } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 
 import * as Yup from 'yup';
@@ -83,10 +82,6 @@ export default function Form() {
 
   return (
     <S.Container ref={formRef} onSubmit={handleSubmit}>
-      <strong>
-        <FiPlus size={20} />
-        Add new tool
-      </strong>
       <Field
         type="text"
         name="title"

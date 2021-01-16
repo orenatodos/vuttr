@@ -6,19 +6,8 @@ import { Container as Button } from '../Button/styles';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    strong {
-      display: flex;
-      align-items: center;
-      font-size: ${theme.font.sizes.header1};
-
-      svg {
-        margin-right: ${theme.spacings.xsmall};
-      }
-    }
-
     p {
       font-size: ${theme.font.sizes.bodySmall};
-      margin-top: ${theme.spacings.medium};
     }
 
     div {

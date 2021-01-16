@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { FiX } from 'react-icons/fi';
 import { Tool } from '../../App';
 
 import api from '../../services/api';
@@ -36,10 +35,6 @@ export default function Confirmation(props: ConfirmationProps) {
 
   return (
     <S.Container>
-      <strong>
-        <FiX size={20} />
-        Remove tool
-      </strong>
       <p>
         Are you sure you want to remove <b>{title}</b>?
       </p>

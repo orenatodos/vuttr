@@ -10,7 +10,6 @@ export const Container = styled.div<FieldProps>`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: ${theme.spacings.small};
 
     label {
       font-size: ${theme.font.sizes.body};

@@ -29,7 +29,12 @@ export default function Header() {
           Add
         </Button>
       </div>
-      <Modal isShown={modalIsShown} hide={() => setModalIsShown(!modalIsShown)}>
+      <Modal
+        title="Add new tool"
+        icon={FiPlus}
+        isShown={modalIsShown}
+        hide={() => setModalIsShown(!modalIsShown)}
+      >
         <Form />
       </Modal>
     </S.Container>

@@ -21,6 +21,17 @@ export const Container = styled.div`
       border-radius: ${theme.radius.default};
       max-height: 52rem;
       overflow: auto;
+
+      strong {
+        display: flex;
+        align-items: center;
+        font-size: ${theme.font.sizes.header1};
+        margin-bottom: ${theme.spacings.small};
+
+        svg {
+          margin-right: ${theme.spacings.xsmall};
+        }
+      }
     }
   `}
 `;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiEdit, FiTrash } from 'react-icons/fi';
+import { FiEdit, FiTrash, FiX } from 'react-icons/fi';
 
 import Button from '../Button';
 import Modal from '../Modal';
@@ -44,7 +44,12 @@ export default function Tool(props: ToolProps) {
           </Button>
         </div>
       </S.Container>
-      <Modal isShown={modalIsShown} hide={() => setModalIsShown(!modalIsShown)}>
+      <Modal
+        title="Remove tool"
+        icon={FiX}
+        isShown={modalIsShown}
+        hide={() => setModalIsShown(!modalIsShown)}
+      >
         <Confirmation
           id={tool.id}
           title={tool.title}
