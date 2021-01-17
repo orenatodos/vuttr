@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiEdit, FiTrash, FiX } from 'react-icons/fi';
+import { FiEdit2, FiTrash, FiX } from 'react-icons/fi';
 
 import Button from '../Button';
 import Modal from '../Modal';
@@ -25,7 +25,7 @@ export default function Tool(props: ToolProps) {
       <S.Container>
         <a href={tool.link}>{tool.title}</a>
         {tool.description && <p>{tool.description}</p>}
-        {tool.tags && (
+        {tool.tags.length > 0 && (
           <ul>
             {tool.tags.map((tag, index) => (
               // eslint-disable-next-line
@@ -35,7 +35,7 @@ export default function Tool(props: ToolProps) {
         )}
         <div>
           <Button type="button">
-            <FiEdit size={16} />
+            <FiEdit2 size={16} />
           </Button>
           <Button
             type="button"

@@ -43,7 +43,7 @@ export default function Form() {
         const joinTags = tags.join(' ');
         const splitTags = joinTags.split(' ');
 
-        await api.post('tools', { ...data, tags: splitTags });
+        await api.post('tools', { ...data, tags: joinTags ? splitTags : [] });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
