@@ -24,13 +24,15 @@ export default function Tool(props: ToolProps) {
     <>
       <S.Container>
         <a href={tool.link}>{tool.title}</a>
-        <p>{tool.description}</p>
-        <ul>
-          {tool.tags.map((tag, index) => (
-            // eslint-disable-next-line
-            <li key={index}>#{tag}</li>
-          ))}
-        </ul>
+        {tool.description && <p>{tool.description}</p>}
+        {tool.tags && (
+          <ul>
+            {tool.tags.map((tag, index) => (
+              // eslint-disable-next-line
+              <li key={index}>#{tag}</li>
+            ))}
+          </ul>
+        )}
         <div>
           <Button type="button">
             <FiEdit size={16} />
