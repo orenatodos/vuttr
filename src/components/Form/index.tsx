@@ -1,16 +1,13 @@
 import { useCallback, useRef, useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
-
 import * as Yup from 'yup';
-import getValidationErrors from '../../utils/getValidationErrors';
+import { useTools } from '../../hooks/useTools';
 
-import api from '../../services/api';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 import Field from './Field';
 import Button from '../Button';
-
-import { Tool } from '../../App';
 
 import * as S from './styles';
 
@@ -21,17 +18,12 @@ interface FormData {
   tags: string;
 }
 
-interface FormProps {
-  tools: Tool[];
-  setTools: any;
-}
-
-export default function Form(props: FormProps) {
-  const { tools, setTools } = props;
-
+export default function Form() {
   const formRef = useRef<FormHandles>(null);
 
-  const [tags, setTags] = useState<String[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
+
+  const { handleAddTool } = useTools();
 
   const handleSubmit = useCallback(
     async (data: FormData) => {
@@ -49,14 +41,7 @@ export default function Form(props: FormProps) {
 
         await schema.validate(data, { abortEarly: false });
 
-        const joinTags = tags.join(' ');
-        const splitTags = joinTags.split(' ');
-
-        const newTool = { ...data, tags: joinTags ? splitTags : [] };
-
-        setTools([...tools, newTool]);
-
-        await api.post('tools', newTool);
+        handleAddTool({ ...data, tags });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -65,7 +50,7 @@ export default function Form(props: FormProps) {
         }
       }
     },
-    [tags, tools, setTools],
+    [handleAddTool, tags],
   );
 
   const handleAddFieldTags = useCallback(

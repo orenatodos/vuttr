@@ -5,18 +5,9 @@ import Button from '../Button';
 import Modal from '../Modal';
 import Form from '../Form';
 
-import { Tool } from '../../App';
-
 import * as S from './styles';
 
-interface HeaderProps {
-  tools: Tool[];
-  setTools: any;
-}
-
-export default function Header(props: HeaderProps) {
-  const { tools, setTools } = props;
-
+export default function Header() {
   const [modalIsShown, setModalIsShown] = useState(false);
 
   return (
@@ -44,7 +35,7 @@ export default function Header(props: HeaderProps) {
         isShown={modalIsShown}
         hide={() => setModalIsShown(!modalIsShown)}
       >
-        <Form tools={tools} setTools={setTools} />
+        <Form />
       </Modal>
     </S.Container>
   );

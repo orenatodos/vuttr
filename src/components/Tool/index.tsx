@@ -4,19 +4,15 @@ import { FiEdit2, FiX } from 'react-icons/fi';
 import Modal from '../Modal';
 import Confirmation from '../Confirmation';
 
-import { Tool as ToolItem } from '../../App';
+import { Tool as ToolProp } from '../../hooks/useTools';
 
 import * as S from './styles';
 
 interface ToolProps {
-  tool: ToolItem;
-  tools: ToolItem[];
-  setTools: any;
+  tool: ToolProp;
 }
 
-export default function Tool(props: ToolProps) {
-  const { tool, tools, setTools } = props;
-
+export default function Tool({ tool }: ToolProps) {
   const [modalIsShown, setModalIsShown] = useState(false);
 
   return (
@@ -52,8 +48,6 @@ export default function Tool(props: ToolProps) {
         <Confirmation
           id={tool.id}
           title={tool.title}
-          tools={tools}
-          setTools={setTools}
           modalIsShown={modalIsShown}
           setModalIsShown={setModalIsShown}
         />

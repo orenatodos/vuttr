@@ -1,6 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
-
-import api from './services/api';
+import { useTools } from './hooks/useTools';
 
 import Header from './components/Header';
 import Tool from './components/Tool';
@@ -10,28 +8,18 @@ export interface Tool {
   title: string;
   link: string;
   description: string;
-  tags: String[];
+  tags: string[];
 }
 
 export default function App() {
-  const [tools, setTools] = useState<Tool[]>([]);
-
-  const getData = useCallback(async () => {
-    const response = await api.get('tools');
-
-    setTools(response.data);
-  }, []);
-
-  useEffect(() => {
-    getData();
-  }, []); // eslint-disable-line
+  const { tools } = useTools();
 
   return (
     <>
-      <Header tools={tools} setTools={setTools} />
+      <Header />
       <main>
         {tools.map(tool => (
-          <Tool key={tool.id} tool={tool} tools={tools} setTools={setTools} />
+          <Tool key={tool.id} tool={tool} />
         ))}
       </main>
     </>
