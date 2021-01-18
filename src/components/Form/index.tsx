@@ -55,11 +55,12 @@ export default function Form() {
 
   const handleAddFieldTags = useCallback(
     event => {
-      const { key, target } = event;
+      const { key } = event;
 
       if (key === ' ') {
-        setTags([...tags, target.value]);
-        target.value = '';
+        const tag = formRef.current?.getFieldValue('tags').trim();
+        setTags([...tags, tag]);
+        formRef.current?.clearField('tags');
       }
     },
     [tags],
@@ -107,7 +108,7 @@ export default function Form() {
         id="tags"
         label="Tool Tags"
         placeholder="Optional..."
-        onKeyPress={handleAddFieldTags}
+        onKeyUp={handleAddFieldTags}
       >
         {tags.length > 0 && (
           <>
