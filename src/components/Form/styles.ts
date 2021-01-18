@@ -30,11 +30,8 @@ export const Container = styled(Form)`
     }
 
     ${Button} {
-      height: 5rem;
-      padding: 0 ${theme.spacings.medium};
       align-self: flex-end;
       background: ${theme.colors.green};
-      margin-top: ${theme.spacings.small};
 
       &:hover {
         background: ${shade(0.2, theme.colors.green)};

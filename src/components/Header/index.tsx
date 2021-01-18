@@ -5,9 +5,18 @@ import Button from '../Button';
 import Modal from '../Modal';
 import Form from '../Form';
 
+import { Tool } from '../../App';
+
 import * as S from './styles';
 
-export default function Header() {
+interface HeaderProps {
+  tools: Tool[];
+  setTools: any;
+}
+
+export default function Header(props: HeaderProps) {
+  const { tools, setTools } = props;
+
   const [modalIsShown, setModalIsShown] = useState(false);
 
   return (
@@ -18,7 +27,7 @@ export default function Header() {
         <div>
           <S.SearchBar>
             <FiSearch size={20} />
-            <input type="search" placeholder="Digite o que está procurando…" />
+            <input type="search" placeholder="Search" />
           </S.SearchBar>
           <S.Checkbox htmlFor="tags">
             <input type="checkbox" name="tags" id="tags" />
@@ -35,7 +44,7 @@ export default function Header() {
         isShown={modalIsShown}
         hide={() => setModalIsShown(!modalIsShown)}
       >
-        <Form />
+        <Form tools={tools} setTools={setTools} />
       </Modal>
     </S.Container>
   );

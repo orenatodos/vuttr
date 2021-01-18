@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <Header tools={tools} setTools={setTools} />
       <main>
         {tools.map(tool => (
           <Tool key={tool.id} tool={tool} tools={tools} setTools={setTools} />

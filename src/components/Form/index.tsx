@@ -10,6 +10,8 @@ import api from '../../services/api';
 import Field from './Field';
 import Button from '../Button';
 
+import { Tool } from '../../App';
+
 import * as S from './styles';
 
 interface FormData {
@@ -19,7 +21,14 @@ interface FormData {
   tags: string;
 }
 
-export default function Form() {
+interface FormProps {
+  tools: Tool[];
+  setTools: any;
+}
+
+export default function Form(props: FormProps) {
+  const { tools, setTools } = props;
+
   const formRef = useRef<FormHandles>(null);
 
   const [tags, setTags] = useState<String[]>([]);
@@ -43,7 +52,11 @@ export default function Form() {
         const joinTags = tags.join(' ');
         const splitTags = joinTags.split(' ');
 
-        await api.post('tools', { ...data, tags: joinTags ? splitTags : [] });
+        const newTool = { ...data, tags: joinTags ? splitTags : [] };
+
+        setTools([...tools, newTool]);
+
+        await api.post('tools', newTool);
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -52,7 +65,7 @@ export default function Form() {
         }
       }
     },
-    [tags],
+    [tags, tools, setTools],
   );
 
   const handleAddFieldTags = useCallback(

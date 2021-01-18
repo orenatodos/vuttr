@@ -54,8 +54,7 @@ export const SearchBar = styled.label`
     display: flex;
     align-items: center;
     color: ${theme.colors.lighterInk};
-    background: ${theme.colors.darkerWhite};
-    border: 0.1rem solid ${theme.colors.darkestWhite};
+    background: ${theme.colors.white};
     border-radius: ${theme.radius.default};
     padding: 0 ${theme.spacings.small};
 

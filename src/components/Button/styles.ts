@@ -4,13 +4,14 @@ import { shade } from 'polished';
 
 export const Container = styled.button`
   ${({ theme }) => css`
-    padding: ${theme.spacings.xsmall};
+    height: 5rem;
+    padding: ${theme.spacings.medium};
     background: ${theme.colors.blue};
     border-radius: ${theme.radius.default};
-    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.bodySmall};
     font-weight: ${theme.font.semibold};
     text-transform: uppercase;
+    color: ${theme.colors.white};
     transition: ${theme.transitions.default};
 
     &:hover {

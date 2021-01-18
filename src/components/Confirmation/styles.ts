@@ -13,10 +13,10 @@ export const Container = styled.div`
     div {
       display: flex;
       justify-content: flex-end;
-      gap: ${theme.spacings.medium};
       margin-top: ${theme.spacings.medium};
 
       ${Button}:last-child {
+        margin-left: ${theme.spacings.small};
         background: ${theme.colors.red};
 
         &:hover {

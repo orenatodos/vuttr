@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { FiEdit2, FiTrash, FiX } from 'react-icons/fi';
+import { FiEdit2, FiX } from 'react-icons/fi';
 
-import Button from '../Button';
 import Modal from '../Modal';
 import Confirmation from '../Confirmation';
 
@@ -34,16 +33,14 @@ export default function Tool(props: ToolProps) {
           </ul>
         )}
         <div>
-          <Button type="button">
+          <button type="button" onClick={() => setModalIsShown(!modalIsShown)}>
+            <FiX size={16} />
+            Remove
+          </button>
+          <button type="button">
             <FiEdit2 size={16} />
-          </Button>
-          <Button
-            type="button"
-            className="remove"
-            onClick={() => setModalIsShown(!modalIsShown)}
-          >
-            <FiTrash size={16} />
-          </Button>
+            Edit
+          </button>
         </div>
       </S.Container>
       <Modal

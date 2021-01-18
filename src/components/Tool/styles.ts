@@ -1,13 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { shade } from 'polished';
-
-import { Container as Button } from '../Button/styles';
-
 export const Container = styled.article`
   ${({ theme }) => css`
-    box-shadow: ${theme.shadows.elevation2};
-    border: 0.1rem solid ${theme.colors.darkestWhite};
+    background: ${theme.colors.white};
     border-radius: ${theme.radius.default};
     padding: ${theme.spacings.small};
     position: relative;
@@ -41,7 +36,7 @@ export const Container = styled.article`
       flex-wrap: wrap;
       gap: ${theme.spacings.small};
       font-weight: ${theme.font.semibold};
-      margin-top: ${theme.spacings.small};
+      margin-top: ${theme.spacings.xsmall};
     }
 
     > div {
@@ -50,19 +45,14 @@ export const Container = styled.article`
       right: ${theme.spacings.small};
       display: flex;
       align-items: center;
+      gap: ${theme.spacings.small};
 
-      ${Button} {
+      button {
+        background: transparent;
+        text-transform: uppercase;
+
         svg {
-          margin: 0;
-        }
-      }
-
-      .remove {
-        background: ${theme.colors.red};
-        margin-left: ${theme.spacings.xsmall};
-
-        &:hover {
-          background: ${shade(0.2, theme.colors.red)};
+          margin-right: ${theme.spacings.xxsmall};
         }
       }
     }

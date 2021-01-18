@@ -15,6 +15,7 @@ export default createGlobalStyle`
 
   body {
     color: ${({ theme }) => theme.colors.ink};
+    background: ${({ theme }) => theme.colors.mostDarkestWhite};
     text-rendering: optimizeLegibility !important;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased !important;
