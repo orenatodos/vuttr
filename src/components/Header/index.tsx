@@ -35,7 +35,7 @@ export default function Header() {
         isShown={modalIsShown}
         hide={() => setModalIsShown(!modalIsShown)}
       >
-        <Form />
+        <Form modalIsShown={modalIsShown} setModalIsShown={setModalIsShown} />
       </Modal>
     </S.Container>
   );

@@ -18,7 +18,14 @@ interface FormData {
   tags: string;
 }
 
-export default function Form() {
+interface FormProps {
+  modalIsShown: boolean;
+  setModalIsShown: any;
+}
+
+export default function Form(props: FormProps) {
+  const { modalIsShown, setModalIsShown } = props;
+
   const formRef = useRef<FormHandles>(null);
 
   const [tags, setTags] = useState<string[]>([]);
@@ -42,6 +49,7 @@ export default function Form() {
         await schema.validate(data, { abortEarly: false });
 
         handleAddTool({ ...data, tags });
+        setModalIsShown(!modalIsShown);
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
