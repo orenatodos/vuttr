@@ -1,5 +1,4 @@
-<h1 align="center">VUTTR</h1>
-<h2 align="center">Very Useful Tools to Remember</h2>
+<h1 align="center">Very Useful Tools to Remember</h1>
 
 <br>
 
